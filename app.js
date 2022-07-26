@@ -13,12 +13,13 @@ var promoRouter = require('./routes/promoRouter');
 var leaders = require('./routes/leaders');
 var passport = require('passport');
 var authenticate = require('./authenticate');
+var config = require('./config');
 
 const mongoose=require('mongoose');
 
 const Dishes = require('./models/dishes');
 
-const url = 'mongodb://127.0.0.1:27017/conFusion';
+const url = config.mongoUrl;
 const connect = mongoose.connect(url,{useUnifiedTopology : true,useNewUrlParser : true});
 
 connect.then((db) => {

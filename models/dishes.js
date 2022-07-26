@@ -42,11 +42,7 @@ var dishSchema = new Schema({
         type: String,
         default: ''
     },
-    price: {
-        type: String,
-        required: true,
-        min: 0
-    },
+
     featured: {
         type: Boolean,
         default: false
