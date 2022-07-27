@@ -9,7 +9,6 @@ var authenticate = require('../authenticate');
 dishRouter.use(bodyParser.json());
 
 dishRouter.route('/')
-
 .options(cors.corsWithOptions, (req, res) => { res.sendStatus(200); }) 
 .get(cors.cors,(req,res,next) => {
     Dishes.find({})
@@ -23,7 +22,7 @@ dishRouter.route('/')
 })
 
   
-  .post(cors.corsWithOptions,authenticate.verifyUser,authenticate.verifyAdmin, (req, res, next) => {
+.post(cors.corsWithOptions,authenticate.verifyUser,authenticate.verifyAdmin, (req, res, next) => {
     Dishes.create(req.body)
     .then((dish) => {
         console.log('Dish Created ', dish);
